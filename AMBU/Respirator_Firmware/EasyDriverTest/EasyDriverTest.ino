@@ -9,11 +9,13 @@ AccelStepper stepper(AccelStepper::DRIVER, motor_step_pin, motor_dir_pin);
 
 void setup() {
   // put your setup code here, to run once:
+  stepper.setMinPulseWidth(3);
   stepper.setMaxSpeed(30000);
+  stepper.setSpeed(30000);
   stepper.setAcceleration(30000);
 
 stepper.setCurrentPosition(0);
-    stepper.moveTo(-3200);
+    stepper.moveTo(1600);
 }
 
 void loop() {

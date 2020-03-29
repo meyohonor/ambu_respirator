@@ -18,14 +18,16 @@ int breath_pause_msec = 500; //time between the end if the last cycle and the ne
 
 
 /* CALCULATED PARAMS  */
-float revolutions_to_target = target_position_mm*thread_ratio; //number of revolutions needed to target
+float revolutions_to_target = target_position_mm/thread_ratio; //number of revolutions needed to target
 int target_position_steps = revolutions_to_target*motor_steps_revolution; //this position is en steps 
 
 bool first = true;
 
 void setup()
 { 
+    stepper.setMinPulseWidth(3);
   stepper.setMaxSpeed(max_speed);
+  stepper.setSpeed(max_speed);
   stepper.setAcceleration(max_accel);
 }
 
